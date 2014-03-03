@@ -14,12 +14,6 @@ public class ScrabbleSlam {
 						}
 				});
 				dict.load("../dictionaries/TWL06.txt");
-		}
-
-		public void print_dictionary() {
-				for (String word : dict.words) {
-						System.out.print( word );
-						System.out.println( dict.find_adjacent_words( word ) );
-				}
+				dict.buildAdjacencies();
 		}
 }

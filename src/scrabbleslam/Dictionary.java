@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Dictionary {
 		public interface NewWordFilter {
@@ -16,19 +18,21 @@ public class Dictionary {
 		}
 
 		public Set<String> words;
+		public HashMap<String, HashSet<String>> adjacencies;
 		private NewWordFilter filter;
 
 		public Dictionary(NewWordFilter new_word_filter) {
 				words = new HashSet<String>();
 				filter = new_word_filter;
+				adjacencies = new HashMap<String, HashSet<String>>();
 		}
 
 		public int size() {
 				return words.size();
 		}
 
-		public List<String> find_adjacent_words(String search_word) {
-				List<String> adjacent_words = new ArrayList<String>();
+		public HashSet<String> findAdjacentWords(String search_word) {
+				HashSet<String> adjacent_words = new HashSet<String>();
 				for (String word: this.words) {
 						if (word.length() != search_word.length())
 								continue;
@@ -44,6 +48,12 @@ public class Dictionary {
 						}
 				}
 				return adjacent_words;
+		}
+
+		public void buildAdjacencies() {
+				for (String word: this.words) {
+					adjacencies.put(word, findAdjacentWords(word));
+				}
 		}
 
 		public void add(String new_word) {
