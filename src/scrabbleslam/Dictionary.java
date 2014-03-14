@@ -56,7 +56,7 @@ public class Dictionary {
 				}
 		}
 
-		public void add(String new_word) {
+		private void add(String new_word) {
 				if (filter.can_add(new_word)) {
 						words.add(new_word);
 				}
