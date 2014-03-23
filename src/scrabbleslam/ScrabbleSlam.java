@@ -1,6 +1,7 @@
 package scrabbleslam;
 
 import java.util.Random;
+import java.util.HashSet;
 import scrabbleslam.Dictionary;
 
 public class ScrabbleSlam {
@@ -14,6 +15,9 @@ public class ScrabbleSlam {
 				});
 				dict.load("../dictionaries/TWL06.txt");
 				dict.buildAdjacencies();
+		}
+		public HashSet<String> adjacentWords(String word) {
+				return dict.findAdjacentWords(word);
 		}
 
 		public String pickRandomStartWord() {
