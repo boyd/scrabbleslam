@@ -14,7 +14,6 @@ public class ScrabbleSlam {
 						}
 				});
 				dict.load("../dictionaries/TWL06.txt");
-				dict.buildAdjacencies();
 		}
 		public HashSet<String> adjacentWords(String word) {
 				return dict.findAdjacentWords(word);
@@ -23,6 +22,7 @@ public class ScrabbleSlam {
 		public String pickRandomStartWord() {
 				String candidate = new String(); // FIXME
 				int size = dict.size();
+
 				while (true) {
 						int i = new Random().nextInt(size);
 						for (String word : dict.words) {

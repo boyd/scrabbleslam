@@ -16,6 +16,7 @@ class Main {
 		Options options = Main.getOptions();
 
 		CommandLine cmd = parser.parse( options, args);
+
 		if (cmd.hasOption("help") ) {
 			new HelpFormatter().printHelp("Main", options);
 		} else if (cmd.hasOption("start_word")) {

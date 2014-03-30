@@ -50,7 +50,7 @@ public class Dictionary {
 				return adjacent_words;
 		}
 
-		public void buildAdjacencies() {
+		public void buildAllAdjacencies() {
 				for (String word: this.words) {
 					adjacencies.put(word, findAdjacentWords(word));
 				}
